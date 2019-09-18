@@ -1,0 +1,103 @@
+<template id="tpl-br-button">
+    <button class="br-button"
+            type="button">
+    </button>
+</template>
+
+<script>
+    class BrButton extends HTMLElement{
+        constructor(){
+            super()
+            this.content = Array.from(this.childNodes)
+            const component = document.querySelector("#tpl-br-button")
+                                .content.cloneNode(true)
+
+            this.config = this.dataset.config
+                            ? this.dataset.config.trim().split(" ")
+                            : ["secondary"]
+
+            this.applyTemplate( component )
+            this.appendChild(component)
+            this.reflectClassList()
+        }
+
+        applyTemplate( component ){
+            const receiver = component.querySelector('button')
+            this.content.forEach( item => receiver.appendChild(item))
+            const button = component.querySelector('button')
+
+
+            if( this.config.includes("disabled"))
+                component.querySelector("button").setAttribute("disabled",disabled)
+
+            // Ao utilizr botões de ícones, é permitido
+            // omitir conteúdo, que será preenchido automaticamente
+            if(this.content.length == 0)
+                this.autoFillButton( receiver )
+
+            this.addClass( button )
+        }
+
+        autoFillButton( receiver ){
+            if( this.config.includes("top")){
+                let elText = ""
+                if(this.config.includes("label"))
+                    elText += "Voltar ao topo"
+                elText += '<span class="br-button is-circle '
+                if(this.config.includes("primary"))
+                    elText += 'is-primary'
+                else
+                    elText += 'is-secondary'
+                elText += '"><i class="fas fa-chevron-up"></i></span>'
+                // if(this.config.includes("label-right")
+                //     || this.config.includes("label"))
+                //     elText += "Voltar ao topo"
+                receiver.innerHTML=elText
+            }                
+            
+            else if( this.config.includes("facebook"))
+                receiver.innerHTML=`<i class="fab fa-facebook-f fa-lg"></i>`
+            
+
+            else if( this.config.includes("twitter"))
+                receiver.innerHTML=`<i class="fab fa-twitter fa-lg"></i>`
+            
+            else if( this.config.includes("filter"))
+                receiver.innerHTML = `Filtrar<i class="fas fa-sliders-h"></i>`
+        }
+
+        addClass( el ){
+            console.log('el',el)
+            const classes = {
+                action: "is-call-to-action",
+                cancel: "is-cancel",
+                circle: "is-circle",
+                // disabled: "is-disabled",
+                facebook: "is-facebook",
+                filter: "is-filter",
+                loading: "is-loading",
+                primary: "is-primary",
+                secondary: "is-secondary",
+                social: "is-social-media",
+                tertiary: "is-tertiary",
+                top: "is-go-top",
+                twitter: "is-twitter",
+            }
+            this.config.forEach( item => {
+                if( classes[item] )
+                    if(!(
+                        this.config.includes("top")
+                        && (item=="primary" || item=="secondary")
+                    ))
+                    el.classList.add(classes[item])})
+        }
+        reflectClassList( el ){
+            const target = el || this.firstElementChild
+            this.classList.forEach( className => {
+                this.classList.remove(className)
+                target.classList.add(className)
+            })
+        }
+    }
+    customElements.define("br-button",BrButton)
+</script>

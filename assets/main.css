@@ -1,0 +1,138 @@
+/* @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap'); */
+@import url("fonts/stylesheet.css");
+@import url("accordeon.css");
+@import url("alerta.css");
+@import url("breadcrumb.css");
+@import url("button.css");
+@import url("divider.css");
+@import url("check.css");
+
+/* *:not(i){
+    font-family: 'Raleway', serif !important;
+} */
+
+
+@font-face{
+    font-family: 'Rawline';
+    src: url('fonts/rawline-400-webfont.woff') format('woff');
+    font-weight: 400;
+}
+@font-face{
+    font-family: 'Rawline';
+    src: url('fonts/rawline-500-webfont.woff') format('woff');
+    font-weight: 500;
+}
+@font-face{
+    font-family: 'Rawline';
+    src: url('fonts/rawline-600-webfont.woff') format('woff');
+    font-weight: 600;
+}
+@font-face{
+    font-family: 'Rawline';
+    src: url('fonts/rawline-700-webfont.woff') format('woff');
+    font-weight: 700;
+}
+@font-face{
+    font-family: 'Rawline';
+    src: url('fonts/rawline-800-webfont.woff') format('woff');
+    font-weight: 700;
+}
+@font-face{
+    font-family: 'Rawline';
+    src: url('fonts/rawline-900-webfont.woff') format('woff');
+    font-weight: 900;
+}
+
+body{
+    font-family: 'Rawline', cursive;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+    font-weight: 600;
+    margin: 3rem 0 2rem;
+}
+h1>span{
+    font-size: 16px;
+    display: block;
+    margin-bottom: -8px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.working-mark-up{
+    flex: 1;
+}
+.view-code{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    /* width: 100%;
+    height: 100%; */
+    flex: 1;
+}
+
+.custom-code,
+.standard-code{
+    padding: 20px;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    word-wrap: break-word; 
+}
+
+.custom-code{
+    background-color: papayawhip;
+    flex: 1;
+}
+
+.standard-code{
+    background-color: aliceblue;
+    flex: 1;
+}
+
+button{
+    margin: 5px;
+}
+
+@media (min-width:750px){
+    h1{
+        text-align: left;
+    }
+    .flex-container{
+        flex-direction: row;
+    } 
+    .working-mark-up{
+        min-width: 35%;
+        margin-right: 20px;
+    }
+}
+@media (min-width:1200px){
+    .view-code{
+        flex-direction: row;
+    }
+    .working-mark-up{
+        max-width: 20%;
+        flex: 1;
+    }
+}
+
+.tap-accordeon,
+.tap-alerta,
+.tap-breadcrumb,
+.tap-button,
+.tap-checkbox,
+.tap-radio,
+.tap-divider{
+   margin-top: 90px;
+   cursor: pointer;
+}
+
+.tap-accordeon{
+    margin-top: 0;
+}

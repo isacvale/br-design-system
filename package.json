@@ -1,0 +1,21 @@
+{
+  "name": "br-design-system",
+  "version": "0.0.1",
+  "description": "Implementação nativa do Design System do governo federal Brasileiro.",
+  "main": "index.js",
+  "dependencies": {
+    "celo": "^1.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "design",
+    "system",
+    "gov",
+    "br"
+  ],
+  "author": "isacvale",
+  "license": "ISC"
+}

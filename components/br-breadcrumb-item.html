@@ -1,0 +1,48 @@
+<template id="tpl-br-breadcrumb-item">
+        <li>
+            <a href="#">Texto do Link</a>
+        </li>
+</template>
+
+<script>
+    class BrBreadcrumbItem extends HTMLElement{
+        constructor(){
+            super()
+            const component = document.querySelector("#tpl-br-breadcrumb-item")
+                                .content.cloneNode(true)
+            this.content = this.dataset.text
+            this.config =   this.dataset.config
+                            ? this.dataset.config.split(" ")
+                            : []
+            this.href = this.dataset.href || "#"
+
+            this.applyTemplate( component )
+            // this.appendChild( component )
+            this.reflectClassList( component.querySelector("li") )
+            this.parentNode.appendChild( component )
+        }
+        connectedCallback(){
+            console.log('conn')
+
+            this.parentNode.removeChild(this)
+        }
+        applyTemplate( component ){
+            if(this.config.includes("active"))
+                component.querySelector("li").classList.add("is-active")
+            const link = component.querySelector("a")
+            link.setAttribute("href", this.href)
+            link.textContent = this.content
+            if( this.config.includes("selected"))
+                component.querySelector("li").classList.add("is-active")
+        }
+        reflectClassList( el ){
+            const target = el || this.firstElementChild
+            console.log("el",target.classList)
+            this.classList.forEach( className => {
+                this.classList.remove(className)
+                target.classList.add(className)
+            })
+        }
+    }
+    customElements.define("br-breadcrumb-item", BrBreadcrumbItem)
+</script>

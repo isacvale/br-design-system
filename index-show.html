@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+    
+
+
+    <h1><span>Teste de componentes com </span>Custom Elements</h1>
+
+    <div class="flex-container">
+        <div class="working-mark-up">
+
+            <br-divider class="tap-accordeon">Accordeon</br-divider>
+
+            <br-accordeon data-config="single">
+                <br-accordeon-item  data-title="Accordion com configuração 'single'"
+                                    data-content="Conteúdo do item.">
+                </br-accordeon-item>
+                <br-accordeon-item  data-title="Meu teste2"
+                                    data-content="Conteúdo do item."
+                                    data-active="true">
+                </br-accordeon-item>
+            </br-accordeon>
+        
+        
+            <br-accordeon>
+                <br-accordeon-item  data-title="Accordion sem configuração 'single'"
+                                    data-content="Conteúdo do item.">
+                </br-accordeon-item>
+                <br-accordeon-item  data-title="Meu teste2"
+                                    data-content="Conteúdo do item."
+                                    data-active="true">
+                </br-accordeon-item>
+            </br-accordeon>
+        
+        
+            <br-divider class="tap-alerta">Alerta</br-divider>
+        
+            <br-alerta class="m-3" data-config="danger">
+                <strong>Chamada. </strong>
+                <span>Texto relevante. </span>
+                <a target="_blank" href="#">Link.</a>
+            </br-alerta>
+        
+            <br-alerta class="m-3" data-config="info inverted">
+                <strong>Chamada. </strong>
+                <span>Texto relevante. </span>
+                <a target="_blank" href="#">Link.</a>
+            </br-alerta>
+        
+            <br-divider class="tap-breadcrumb">Breadcrumb</br-divider>
+        
+            <br-breadcrumb class="m-3">
+                <br-breadcrumb-item data-href="#"
+                                    data-text="First Page">
+                </br-breadcrumb-item>
+                <br-breadcrumb-item data-href="#"
+                                    data-text="Second Page">
+                </br-breadcrumb-item>
+                <br-breadcrumb-item data-href="#"
+                                    data-text="Third Page"
+                                    data-config="selected">
+                </br-breadcrumb-item>
+                <br-breadcrumb-item data-href="#"
+                                    data-text="Fourth Page">
+                </br-breadcrumb-item>
+            </br-breadcrumb>
+        
+            <br-divider class="tap-button">Button</br-divider>
+        
+            <br-button  data-config="primary">Primário</br-button>
+            <br-button  data-config="secondary">Secundário</br-button>
+            <br-button  data-config="tertiary">Terciário</br-button>
+            <br-button  data-config="cancel">Cancelar</br-button>
+        
+            <br-button  data-config="action">Ação!</br-button>
+            <br-button  data-config="circle"><i class="fas fa-chevron-up"></i></br-button>
+            <br-button  data-config="social facebook"></br-button>
+            <br-button  data-config="social twitter"></br-button>
+            <br-button  data-config="filter"></br-button>
+            <br-button  data-config="primary loading">Primário</br-button>
+            <br-button  data-config="disabled">Disabled</br-button>
+        
+            <br-button  data-config="top primary label"></br-button>
+            <br-button  data-config="top secondary"></br-button>
+            <br-button  data-config="top label"></br-button>
+            <br-button  data-config="top"></br-button>
+            <br-button  data-config="primary">
+                <a href="#" class="is-disabled">Link disabled</a>
+            </br-button>
+        
+            <br-divider class="tap-checkbox">Checkbox</br-divider>
+        
+            <br-checkbox    data-label="Padrão"></br-checkbox>
+            <br-checkbox    data-label="Checked"
+                            data-config="checked"></br-checkbox>
+            <br-checkbox    data-label="Disabled"
+                            data-config="disabled"></br-checkbox>
+            <br-checkbox    data-label="Válido"
+                            data-config="valid"></br-checkbox>
+            <br-checkbox    data-label="Inválido"
+                            data-config="invalid"></br-checkbox>
+        
+            <br-divider class="tap-radio">Radio</br-divider>
+        
+            <br-radio   data-label="Padrão"
+                        data-name="group1"></br-radio>
+            <br-radio   data-label="Checked"
+                        data-config="checked"
+                        data-name="group1"></br-radio>
+            <br-radio   data-label="Disabled"
+                        data-config="disabled"></br-radio>
+            <br-radio   data-label="Válido"
+                        data-config="valid"></br-radio>
+            <br-radio   data-label="Inválido"
+                        data-config="invalid"></br-radio>
+        
+            <br-divider class="tap-divider">Divider</br-divider>
+        
+            <br-divider><i class="fas fa-check-circle fa-2x"></i></br-divider>
+            <br-divider>This text is not wrapped.</br-divider>
+            <br-divider data-config="wrap">This text is wrapped.</br-divider>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="view-code">
+            <pre class="custom-code"></pre>
+
+            <pre class="standard-code"></pre>
+        </div>
+
+    </div>
+
+<template id="custom-accordeon">
+<br-divider>Accordeon</br-divider>
+
+<br-accordeon data-config="single">
+    <br-accordeon-item  data-title="Accordion com configuração 'single'"
+                        data-content="Conteúdo do item.">
+    </br-accordeon-item>
+    <br-accordeon-item  data-title="Meu teste2"
+                        data-content="Conteúdo do item."
+                        data-active="true">
+    </br-accordeon-item>
+</br-accordeon>
+    
+<br-accordeon>
+    <br-accordeon-item  data-title="Accordion sem configuração 'single'"
+                        data-content="Conteúdo do item.">
+    </br-accordeon-item>
+    <br-accordeon-item  data-title="Meu teste2"
+                        data-content="Conteúdo do item."
+                        data-active="true">
+    </br-accordeon-item>
+</br-accordeon>
+</template>
+                        
+<template id="custom-alerta">
+<br-divider>Alerta</br-divider>
+
+<br-alerta class="m-3" data-config="danger">
+    <strong>Chamada. </strong>
+    <span>Texto relevante. </span>
+    <a target="_blank" href="#">Link.</a>
+</br-alerta>
+
+<br-alerta class="m-3" data-config="info inverted">
+    <strong>Chamada. </strong>
+    <span>Texto relevante. </span>
+    <a target="_blank" href="#">Link.</a>
+</br-alerta>
+</template>
+
+<template id="custom-breadcrumb">
+    <br-divider>Breadcrumb</br-divider>
+    
+    <br-breadcrumb class="m-3">
+        <br-breadcrumb-item data-href="#"
+                            data-text="First Page">
+        </br-breadcrumb-item>
+        <br-breadcrumb-item data-href="#"
+                            data-text="Second Page">
+        </br-breadcrumb-item>
+        <br-breadcrumb-item data-href="#"
+                            data-text="Third Page"
+                            data-config="selected">
+        </br-breadcrumb-item>
+        <br-breadcrumb-item data-href="#"
+                            data-text="Fourth Page">
+        </br-breadcrumb-item>
+    </br-breadcrumb>
+</template>
+
+<template id="custom-button">
+<br-divider>Button</br-divider>
+
+<br-button  data-config="primary">Primário</br-button>
+<br-button  data-config="secondary">Secundário</br-button>
+<br-button  data-config="tertiary">Terciário</br-button>
+<br-button  data-config="cancel">Cancelar</br-button>
+
+<br-button  data-config="action">Ação!</br-button>
+<br-button  data-config="circle">
+    <i class="fas fa-chevron-up"></i>
+</br-button>
+<br-button  data-config="social facebook"></br-button>
+<br-button  data-config="social twitter"></br-button>
+<br-button  data-config="filter"></br-button>
+<br-button  data-config="primary loading">Primário</br-button>
+<br-button  data-config="disabled">Disabled</br-button>
+
+<br-button  data-config="top primary label"></br-button>
+<br-button  data-config="top secondary"></br-button>
+<br-button  data-config="top label"></br-button>
+<br-button  data-config="top"></br-button>
+<br-button  data-config="primary">
+    <a href="#" class="is-disabled">Link disabled</a>
+</br-button>
+</template>
+
+<template id="custom-checkbox">
+<br-divider>Checkbox</br-divider>
+
+<br-checkbox    data-label="Padrão"></br-checkbox>
+<br-checkbox    data-label="Checked"
+                data-config="checked"></br-checkbox>
+<br-checkbox    data-label="Disabled"
+                data-config="disabled"></br-checkbox>
+<br-checkbox    data-label="Válido"
+                data-config="valid"></br-checkbox>
+<br-checkbox    data-label="Inválido"
+                data-config="invalid"></br-checkbox>
+</template>
+
+<template id="custom-radio">
+<br-divider>Radio</br-divider>
+
+<br-radio   data-label="Padrão"
+            data-name="group1"></br-radio>
+<br-radio   data-label="Checked"
+            data-config="checked"
+            data-name="group1"></br-radio>
+<br-radio   data-label="Disabled"
+            data-config="disabled"></br-radio>
+<br-radio   data-label="Válido"
+            data-config="valid"></br-radio>
+<br-radio   data-label="Inválido"
+            data-config="invalid"></br-radio>
+</template>
+
+<template id="custom-divider">
+<br-divider>Divider</br-divider>
+
+<br-divider><i class="fas fa-check-circle fa-2x"></i></br-divider>
+<br-divider>This text is not wrapped.</br-divider>
+<br-divider data-config="wrap">This text is wrapped.</br-divider>
+</template>
+
+
+
+
+
+<template id="standard-accordeon">
+<div class="br-divider">
+    <span class="content">Accordeon</span>
+</div>
+
+<div class="br-accordeon" single>
+    <div class="field">
+        <button class="header" type="button" onclick="toggleAccordeonField(this, 'br-accordeon')">
+        <span class="icon"><i class="fas fa-plus"></i></span>
+        <span class="title">Accordion com configuração 'single'</span>
+        </button>
+        <div class="content">
+        <p>Conteúdo do item.</p>
+        </div>
+    </div>
+    <div class="field">
+        <button class="header" type="button" onclick="toggleAccordeonField(this, 'br-accordeon')">
+        <span class="icon"><i class="fas fa-plus"></i></span>
+        <span class="title">Accordion com configuração 'single'</span>
+        </button>
+        <div class="content">
+        <p>Conteúdo do item.</p>
+        </div>
+    </div>
+</div> 
+
+<div class="br-accordeon" single>
+        <div class="field">
+            <button class="header" type="button" onclick="toggleAccordeonField(this, 'br-accordeon')">
+            <span class="icon"><i class="fas fa-plus"></i></span>
+            <span class="title">Accordion sem configuração 'single'</span>
+            </button>
+            <div class="content">
+            <p>Conteúdo do item.</p>
+            </div>
+        </div>
+        <div class="field">
+            <button class="header" type="button" onclick="toggleAccordeonField(this, 'br-accordeon')">
+            <span class="icon"><i class="fas fa-plus"></i></span>
+            <span class="title">Accordion sem configuração 'single'</span>
+            </button>
+            <div class="content">
+            <p>Conteúdo do item.</p>
+            </div>
+        </div>
+    </div> 
+</template>
+
+<template id="standard-alerta">
+<div class="br-divider">
+    <span class="content">Alerta</span>
+</div>
+
+<div class="br-alert is-danger m-3">
+    <div class="icon">
+        <i class="fas fa-times-circle"></i>
+        <span class="sr-only">Erro</span>
+    </div>
+    <div class="content">
+            <strong>Chamada. </strong>
+            <span>Texto relevante. </span>
+            <a target="_blank" href="#">Link.</a>
+        </div>
+    <div class="close">
+        <button type="button">
+        <i class="fas fa-times"></i>
+        <span class="sr-only">Fechar</span>
+        </button>
+    </div>
+
+    <div class="br-alert is-info is-inverted m-3">
+        <div class="icon">
+            <i class="fas fa-info-circle"></i>
+            <span class="sr-only">Informação!</span>
+        </div>
+        <div class="content">
+                <strong>Chamada. </strong>
+                <span>Texto relevante. </span>
+                <a target="_blank" href="#">Link.</a>
+            </div>
+        <div class="close">
+            <button type="button">
+            <i class="fas fa-times"></i>
+            <span class="sr-only">Fechar</span>
+            </button>
+        </div>
+    </div>
+</div>
+</template>
+
+<template id="standard-breadcrumb">
+<div class="br-divider">
+    <span class="content">Breadcrumb</span>
+</div>
+
+<ul class="br-breadcrumb m-3">
+    <li class="home">
+        <a href="javascript:void(0)">
+            <span class="sr-only">Página inicial</span>
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li>
+        <a href="#">First Page</a>
+    </li>
+    <li>
+        <a href="#">Second Page</a>
+    </li>
+    <li class="is-active">
+        <a href="#">Third Page</a>
+    </li>
+    <li>
+        <a href="#">Fourth Page</a>
+    </li>
+</ul>
+
+</template>
+
+<template id="standard-button">
+<div class="br-divider">
+    <span class="content">Button</span>
+</div>
+            
+<button class="br-button is-primary" type="button">Primário</button>
+<button class="br-button is-secondary" type="button">Secundário</button>
+<button class="br-button is-tertiary" type="button">Terciário</button>
+<button class="br-button is-cancel" type="button">Cancelar</button>
+
+<button class="br-button is-call-to-action" type="button">Ação!</button>
+<button class="br-button is-circle" type="button">
+    <i class="fas fa-chevron-up"></i>
+</button>
+<button class="br-button is-social-media is-facebook" type="button">
+    <i class="fab fa-facebook-f fa-lg"></i>
+</button>
+<button class="br-button is-social-media is-twitter" type="button">
+    <i class="fab fa-twitter fa-lg"></i>
+</button>
+<button class="br-button is-filter" type="button">
+    Filtrar
+    <i class="fas fa-sliders-h"></i>
+</button>
+<button class="br-button is-primary is-loading" type="button">Primário</button>
+
+<button class="br-button is-go-top" type="button">
+    Voltar ao topo
+    <span class="br-button is-circle is-primary">
+        <i class="fas fa-chevron-up"></i>
+    </span>
+</button>
+<button class="br-button is-go-top" type="button">
+    <span class="br-button is-circle is-secondary">
+        <i class="fas fa-chevron-up"></i>
+    </span>
+</button>
+<button class="br-button is-go-top" type="button">
+    Voltar ao topo
+    <span class="br-button is-circle is-secondary">
+        <i class="fas fa-chevron-up"></i>
+    </span>
+</button>
+<button class="br-button is-go-top" type="button">
+    <span class="br-button is-circle is-secondary">
+        <i class="fas fa-chevron-up"></i>
+    </span>
+</button>
+<button class="br-button is-primary" type="button">
+    <a href="#" class="is-disabled">Link disabled</a>
+</button>
+</div>
+</template>
+
+<template id="standard-checkbox">
+<div class="br-divider tap-checkbox">
+    <span class="content">Checkbox</span>
+</div>
+    
+<div class="br-check">
+    <input type="checkbox" id="br-checkbox-954598" class="disabled">
+    <label for="br-checkbox-954598">Padrão</label>
+</div>
+
+<div class="br-check">
+    <input type="checkbox" id="br-checkbox-484876" checked="checked" class="disabled">
+    <label for="br-checkbox-484876">Checked</label>
+</div>
+
+<div class="br-check">
+    <input type="checkbox" id="br-checkbox-836004" disabled="disabled" class="disabled">
+    <label for="br-checkbox-836004">Disabled</label>
+</div>
+
+<div class="br-check is-valid">
+    <input type="checkbox" id="br-checkbox-458625" class="disabled">
+    <label for="br-checkbox-458625">Válido</label>
+</div>
+
+<div class="br-check is-invalid">
+    <input type="checkbox" id="br-checkbox-180878" class="disabled">
+    <label for="br-checkbox-180878">Inválido</label>
+</div>
+
+</div>
+</template>
+
+<template id="standard-radio">
+<div class="br-divider">
+    <span class="content">Radio</span>
+</div>
+    
+<div class="br-check">
+    <input type="radio" id="br-checkbox-908973" name="group1" class="disabled">
+    <label for="br-checkbox-908973">Padrão</label>
+</div>
+
+<div class="br-check">
+    <input type="radio" id="br-checkbox-939403" name="group1" checked="checked" class="disabled">
+    <label for="br-checkbox-939403">Checked</label>
+</div>
+
+<div class="br-check">
+    <input type="radio" id="br-checkbox-325064" name="radio" disabled="disabled" class="disabled">
+    <label for="br-checkbox-325064">Disabled</label>
+</div>
+
+<div class="br-check is-valid">
+    <input type="radio" id="br-checkbox-843360" name="radio" class="disabled">
+    <label for="br-checkbox-843360">Válido</label>
+</div>
+
+<div class="br-check is-invalid">
+    <input type="radio" id="br-checkbox-952164" name="radio" class="disabled">
+    <label for="br-checkbox-952164">Inválido</label>
+</div>
+
+</template>
+
+<template id="standard-divider">
+<div class="br-divider">
+    <span class="content">Divider</span>
+</div>
+    
+<div class="br-divider">
+    <span class="content"><i class="fas fa-check-circle fa-2x"></i></span>
+</div>
+<div class="br-divider">
+    <span class="content">This text is not wrapped.</span>
+</div>
+<div class="br-divider">
+    <span class="content text-wrap">This text is wrapped.</span>
+</div>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="assets/accordeon.js"></script>
+
+    <script type="module" src="assets/celo.mjs"></script>
+    <script src="assets/main.js"></script>
+</body>
+</html>

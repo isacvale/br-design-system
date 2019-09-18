@@ -1,0 +1,99 @@
+<template id="tpl-br-core">
+    <script src="https://kit.fontawesome.com/85cca52cb6.js"></script>
+    <style>
+      /*
+        Folha de estilos
+      */
+      :host{
+        
+        /* Definição de cores */
+
+        --cor-primaria: hsla(217, 81%, 39%, 1); /* #1352b4 */
+        --cor-primaria-claro: hsla(217, 81%, 54%, 1); /* #2b74e9 */
+        --cor-primaria-claro2: hsla(217, 80%, 64%, 1); /* #5992ed */
+        --cor-primaria-escuro: hsla(217, 80%, 24%, 1); /* #0c326f */
+        --cor-primaria-escuro2: hsla(217, 81%, 14%, 1); /* #071d41 */
+
+        --cor-secundaria: hsla(136, 60%, 37%, 1); /* #269744 */
+
+        --cor-apoio-verde: hsla(26, 48%, 43%, 1); /* #a26739 */
+        --cor-apoio-verde-agua: hsla(171, 50%, 42%, 1); /* #36a191 */
+        --cor-apoio-amarelo: hsla(56, 89%, 52%, 1); /* #f2e317 */
+        --cor-apoio-vermelho: hsla(20, 100%, 43%, 1); /* db4800 */
+        --cor-apoio-azul-claro: hsla(216, 80%, 92%, 1); /* # dbe8fb */
+
+        --cor-branco: hsla(0, 50%, 100%, 1); /* #fff */
+        --cor-branco-sujo: hsla(0, 0%, 97%, 1); /* #f8f8f8 */
+        --cor-cinza: hsla(0, 50%, 53%, 1); /* #888 */
+        --cor-cinza-claro: hsla(0, 1%, 62%, 1); /* #9e9d9d */
+        --cor-cinza-claro2: hsla(0, 0%, 80%, 1); /* #ccc */
+        --cor-cinza-claro3: hsla(0, 0%, 93%, 1); /* #ededed */
+        --cor-cinza-escuro: hsla(0, 0%, 44%, 1); /* #707070 */
+        --cor-cinza-escuro2: hsla(0, 0%, 33%, 1); /* #555 */
+        --cor-cinza-escuro3: hsla(0, 0%, 20%, 1); /* #333 */
+        --cor-preto: hsla(0, 50%, 0%, 1); /* #000 */
+
+        --color-cinza: hsla(0, 0%, 53%, 1); /* #888 */
+        --color-cinza-claro: hsla(0, 0%, 80%, 1); /* #ccc */
+        --color-cinza-claro2: hsla(0, 0%, 97%, 1); /* #f8f8f8 */
+        --color-azul: hsla(217, 81%, 53%, 1); /* #2670e8 */
+        --color-azul-claro: hsla(216, 80%, 92%, 1);
+        --color-azul-escuro: hsla(217, 80%, 24%, 1); /* #0c326f */
+
+        --border-grey: 1px solid var(--color-gray-light2);
+        --border-blue: 1px solid var(--color-blue);
+
+        /* Escalas */
+        --tamanho-texto-min: 14;
+        --scale-min-width: 480;
+        --tamanho-texto-min: 18;
+        --scale-max-width: 1200;
+        --scale-delta-height: calc(var(--scale-max-height) - var(--scale-min-height));
+        --scale-delta-width: calc(var( --scale-max-width) - var(--scale-min-width));
+        --scale-relevant-width: calc(100vw - 1px * var(--scale-min-width));
+        --scale-base: calc(
+          var(--scale-relevant-width) * 
+          var(--scale-delta-height) * 
+          (1 / var(--scale-delta-width)) +
+          1px * var( --scale-min-height));
+        --scale-ratio: 1.125;
+        --scale0: var(--scale-base);
+        --scale1: calc(var(--scale0) * var(--scale-ratio));
+        --scale2: calc(var(--scale1) * var(--scale-ratio));
+        --scale3: calc(var(--scale2) * var(--scale-ratio));
+        --scale4: calc(var(--scale3) * var(--scale-ratio));
+        --scale-1: calc(var(--scale0) / var(--scale-ratio));
+        --scale-2: calc(var(--scale-1) / var(--scale-ratio));
+        --scale-3: calc(var(--scale-2) / var(--scale-ratio));
+        --scale-4: calc(var(--scale-3) / var(--scale-ratio));
+        font-size: var(scale0);
+      }
+      @media (max-width: 479px){
+        :host{
+          --scale-base: calc(1px * var(--scale-min-height));
+        }
+      }
+      @media (min-width: 1200px){
+        :host{
+          --scale-base: calc(1px * var(--scale-max-height));
+        }
+      }
+
+      *{
+        font-family: 'rawline', sans-serif;
+      }
+    </style>
+</template>
+<link href="https://cdn.rawgit.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css" rel="stylesheet"> 
+<script>
+  class BrCore extends HTMLElement {
+    constructor () {
+      super ()
+      const el = document
+        .querySelector('#tpl-br-core')
+        .content.cloneNode(true)
+      this.appendChild(el)
+    }
+  }
+  customElements.define('br-core', BrCore)
+</script>

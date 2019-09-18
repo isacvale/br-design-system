@@ -1,0 +1,71 @@
+<template id="tpl-br-table">
+  <br-core></br-core>
+  <table></table>
+  <style>
+    table{
+      border-top: var(--cor-cinza-claro2);
+      width: 100%;
+    }
+    thead th{
+      background: var(--color-cinza-claro2);
+      color: var(--cor-primaria-escuro);
+      font-size: 1rem;
+    }
+    tbody tr:hover {
+      background: var(--cor-apoio-azul-claro);
+    }
+    tbody tr:hover th,
+    tbody tr:hover td {
+      border-color: var(--color-azul);
+      -webkit-box-shadow: 0 -2px 0 var(--color-azul);
+      box-shadow: 0 -2px 0 var(--color-azul);
+      color: var(--cor-cinza-escuro3);
+    }
+  </style>
+</template>
+
+<script>
+  class BrTable extends HTMLElement{
+    constructor(){
+      super()
+      const el = document.querySelector('#tpl-br-table')
+                            .content.cloneNode(true)
+        this.attachShadow({mode:'open'}).appendChild( el )
+        this.table = this.shadowRoot.querySelector('table')
+        this.columns = []
+    }
+
+    setColumns( columns ){
+      const head = document.createElement('thead')
+      const row = document.createElement('tr')
+      head.appendChild(row)
+
+      columns.forEach( columnItem => {
+        const cell = document.createElement('th')
+        cell.innerText = columnItem.label
+        row.appendChild(cell)
+        this.columns.push(columnItem)
+      })
+      this.table.appendChild(head)
+    }
+
+    setRows( rows ){
+      const body = document.createElement('tbody')
+      rows.forEach( rowValue => {
+        const row = document.createElement('tr')
+
+        this.columns.forEach( column => {
+          const cell = document.createElement('td')
+          if (column.function)
+            cell.appendChild(column.function(rowValue[column.name], rowValue))
+          else
+            cell.innerText = rowValue[column.name]
+          row.appendChild(cell)
+        })
+        body.appendChild(row)
+      })
+      this.table.appendChild(body)
+    }
+  }
+  customElements.define('br-table', BrTable)
+</script>

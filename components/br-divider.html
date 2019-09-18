@@ -1,0 +1,39 @@
+<template id="tpl-br-divider">
+    <div class="br-divider">
+        <span class="content"></span>
+    </div>
+</template>
+
+<script>
+    class BrDivider extends HTMLElement{
+        constructor(){
+            super()
+            this.content = Array.from(this.childNodes)
+            this.config =   this.dataset.config
+                            ? this.dataset.config.trim().split(" ")
+                            : []
+
+            const component = document.querySelector("#tpl-br-divider")
+                                .content.cloneNode(true)
+            
+            this.applyTemplate( component )
+            this.appendChild( component )
+            this.reflectClassList()
+        }
+        applyTemplate( component ){
+            const receiver = component.querySelector('span')
+            this.content.forEach( item => receiver.appendChild(item) )
+
+            if( this.config.includes("wrap") )
+                receiver.classList.add("text-wrap")
+        }
+        reflectClassList( el ){
+            const target = el || this.firstElementChild
+            this.classList.forEach( className => {
+                this.classList.remove(className)
+                target.classList.add(className)
+            })
+        }
+    }
+    customElements.define("br-divider", BrDivider)
+</script>

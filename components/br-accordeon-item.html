@@ -1,0 +1,56 @@
+<template id="tpl-br-accordeon-item">
+
+    <div class="field">
+        <button class="header"
+                type="button"
+                onclick="toggleAccordeonField(this, 'br-accordeon')">
+                <span class="icon"><i class="fas fa-plus"></i></span>
+                <span class="title">Este é o título do item.</span>
+        </button>
+        <div class="content">
+            <p>Este é o conteúdo do item.</p>
+        </div>
+    </div>
+
+</template>
+
+<script>
+    class BrAccordeonItem extends HTMLElement{
+        constructor(){
+            super()
+            this.content = Array.from(this.children)
+            const component = document.querySelector("#tpl-br-accordeon-item")
+                                .content.cloneNode(true)
+
+            this.applyTemplate( component )
+            this.appendChild( component )
+            this.reflectClassList()
+        }
+        applyTemplate(component){
+            component.querySelector(".title").textContent = this.dataset.title
+            component.querySelector(".content>p").textContent = this.dataset.content
+            if( this.dataset.active ){
+                component.querySelector(".field").classList.add("is-active")
+                this.classList.remove("is-active")
+                const icon = component.querySelector("i")
+                icon.classList.remove('fa-plus')
+                icon.classList.add('fa-minus')
+            }
+        }
+        
+        reflectClassList(){
+            this.classList.forEach( className => {
+                this.classList.remove(className)
+                this.firstElementChild.classList.add(className)
+            })
+        }
+    }
+    customElements.define('br-accordeon-item',BrAccordeonItem)
+
+</script>
+
+
+
+<!-- const icon = component.querySelector(".br-accordeon")
+icon.classList.remove('fa-minus')
+icon.classList.add('fa-plus') -->

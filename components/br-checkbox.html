@@ -1,0 +1,59 @@
+<template id="tpl-br-checkbox">
+    <div class="br-check">
+        <input type="checkbox">
+        <label>Checkbox</label>
+    </div>
+
+</template>
+<script>
+    class BrCheckbox extends HTMLElement{
+        constructor(){
+            super()
+            const component = document.querySelector("#tpl-br-checkbox")
+                                .content.cloneNode(true)
+            this.label = this.dataset.label || ""
+            this.config =   this.dataset.config
+                            ? this.dataset.config.trim().split(" ")
+                            : []
+
+            this.applyTemplate( component )
+            this.appendChild( component )
+            this.reflectClassList()
+        }
+        applyTemplate( component ){
+            const label = component.querySelector("label")
+            const input = component.querySelector("input")
+            const wrapper = component.querySelector(".br-check")
+
+            const key = this.getRandomKey("br-checkbox")
+            label.textContent = this.label
+            input.setAttribute("id", key)
+            label.setAttribute("for", key)
+            if( this.config.includes("checked") )
+                input.setAttribute("checked","checked")
+            if( this.config.includes("disabled") )
+                input.setAttribute("disabled","disabled")
+                input.classList.add("disabled")
+            if( this.config.includes("valid") )
+                wrapper.classList.add("is-valid")
+            else if( this.config.includes("invalid") )
+                wrapper.classList.add("is-invalid")
+        }
+        reflectClassList( el ){
+            const target = el || this.firstElementChild
+            this.classList.forEach( className => {
+                this.classList.remove(className)
+                target.classList.add(className)
+            })
+        }
+        getRandomKey( base ){
+            return (
+                base+"-"+
+                String(
+                    Math.random()
+                ).slice(2,8)
+            )
+        }
+    }
+    customElements.define("br-checkbox",BrCheckbox)
+</script>

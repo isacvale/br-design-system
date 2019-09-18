@@ -1,0 +1,39 @@
+<template id="tpl-br-accordeon">
+    <div class="container-fluid">
+        <div class="br-accordeon">            
+        </div>
+    </div>
+
+</template>
+<script>
+    class BrAccordeon extends HTMLElement{
+        constructor(){
+            super()
+            this.content = Array.from(this.children)
+            const el = document.querySelector("#tpl-br-accordeon")
+                                .content.cloneNode(true)
+            this.config =   this.dataset.config
+                            ? this.dataset.config.split(" ")
+                            : []
+
+            this.applyTemplate(el)
+            this.appendChild(el)
+            this.reflectClassList()
+        }
+
+        applyTemplate(component){
+            const receiver = component.querySelector(".br-accordeon")
+            this.content.forEach( el => receiver.appendChild(el) )
+            if(this.config.includes("single"))
+                component.querySelector('.br-accordeon').setAttribute("single","single")
+        }
+
+        reflectClassList(){
+            this.classList.forEach( className => {
+                this.classList.remove(className)
+                this.firstElementChild.classList.add(className)
+            })
+        }
+    }
+    customElements.define('br-accordeon',BrAccordeon)
+</script>

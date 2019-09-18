@@ -1,0 +1,85 @@
+<template id="tpl-br-alerta">
+
+    <div class="br-alert">
+        <div class="icon">
+            <i class="fas"></i>
+            <span class="sr-only">Screenreader message.</span>
+        </div>
+        <div class="content"></div>
+        <div class="close">
+            <button type="button">
+            <i class="fas fa-times"></i>
+            <span class="sr-only">Fechar</span>
+            </button>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    class BrAlerta extends HTMLElement{
+        constructor(){
+            super()
+            this.content = Array.from(this.childNodes)
+            const component = document.querySelector("#tpl-br-alerta")
+                                .content.cloneNode(true)
+            
+            this.config =   this.dataset.config
+                                ? this.dataset.config.split(" ")
+                                : ["info"]
+            this.screenReaderText = this.getAttribute("data-sr")
+
+            this.applyTemplate( component )
+            this.appendChild( component )
+            this.reflectClassList()
+
+        }
+        applyTemplate( component ){
+            
+            const receiver = component.querySelector(".content")
+            this.content.forEach( el => receiver.appendChild(el))
+
+            if( this.config.includes("danger") )
+                this.setUpType( component, {
+                    className: "is-danger",
+                    iconImage: "fa-times-circle",
+                    screenReader: this.screenReaderText || "Erro"
+                })
+            else if( this.config.includes("success") )
+                this.setUpType( component, {
+                    className: "is-success",
+                    iconImage: "fa-check-circle",
+                    screenReader: this.screenReaderText || "Sucesso!"
+                })        
+            else if( this.config.includes("warning") )
+                this.setUpType( component, {
+                    className: "is-warning",
+                    iconImage: "fa-exclamation-triangle",
+                    screenReader: this.screenReaderText || "Atenção!"
+                })          
+            else if( this.config.includes("info") )            
+                this.setUpType( component, {
+                    className: "is-info",
+                    iconImage: "fa-info-circle",
+                    screenReader: this.screenReaderText || "Informação!"
+                })
+            
+            if( this.config.includes("inverted"))
+                component.querySelector(".br-alert").classList.add("is-inverted")
+                
+        }
+        setUpType( component, typeSpec ){
+            component.querySelector(".br-alert").classList.add(typeSpec.className)
+            component.querySelector(".icon i").classList.add(typeSpec.iconImage)
+            component.querySelector(".sr-only").textContent = typeSpec.screenReader
+        }
+        
+        reflectClassList(){
+            this.classList.forEach( className => {
+                this.classList.remove(className)
+                this.firstElementChild.classList.add(className)
+            })
+        }
+    }
+    customElements.define("br-alerta", BrAlerta)
+</script>

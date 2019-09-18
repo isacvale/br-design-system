@@ -1,0 +1,37 @@
+<template id="tpl-br-breadcrumb">
+    <ul class="br-breadcrumb">
+        <li class="home">
+            <a href="javascript:void(0)">
+            <span class="sr-only">Página inicial</span>
+            <i class="fas fa-home"></i>
+            </a>
+        </li>
+    </ul>
+</template>
+
+<script>
+    class BrBreadcrumb extends HTMLElement{
+        constructor(){
+            super()
+            this.content = Array.from( this.children )
+            const component = document.querySelector("#tpl-br-breadcrumb")
+                                .content.cloneNode(true)
+
+            this.applyTemplate( component )
+            this.appendChild( component )
+            this.reflectClassList()
+        }
+        applyTemplate( component ){
+            const receiver = component.querySelector(".br-breadcrumb")
+            this.content.forEach( item =>
+                receiver.appendChild(item))
+        }
+        reflectClassList(){
+            this.classList.forEach( className => {
+                this.classList.remove(className)
+                this.firstElementChild.classList.add(className)
+            })
+        }
+    }
+    customElements.define("br-breadcrumb", BrBreadcrumb)
+</script>
